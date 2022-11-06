@@ -1,0 +1,2 @@
+moviepy @ git+https://github.com/Zulko/moviepy.git
+pytube==12.1.0
