@@ -2,7 +2,8 @@ from pytube import YouTube
 from moviepy.editor import *
 
 music_url_or_path = "https://www.youtube.com/watch?v=_CL6n0FJZpk"
-video_url_or_path = "WhatsApp Video 2022-11-06 at 12.51.03.mp4"
+video_url_or_path = "local_video.mp4"
+export_name = "output.mp4"
 
 music_delay = 7.5
 music_offset = 31
@@ -34,4 +35,4 @@ mixed_audioclip = CompositeAudioClip(
 
 final_videoclip = video_videoclip.subclip(start_time=video_offset).with_audio(mixed_audioclip)
 
-final_videoclip.write_videofile("final.mp4", audio_codec="aac")
+final_videoclip.write_videofile(export_name, audio_codec="aac")
