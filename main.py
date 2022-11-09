@@ -28,11 +28,11 @@ audio_end_time = video_videoclip.duration - music_delay
 
 mixed_audioclip = CompositeAudioClip(
     [
-        video_audioclip.subclip(start_time=video_offset).multiply_volume(1),
+        video_audioclip.subclip(start_time=video_offset, end_time=video_offset+end_seconds).multiply_volume(1),
         music_audioclip.subclip(start_time=music_offset, end_time=music_offset+end_seconds-music_delay).with_start(music_delay),
     ]
 )
 
-final_videoclip = video_videoclip.subclip(start_time=video_offset).with_audio(mixed_audioclip)
+final_videoclip = video_videoclip.subclip(start_time=video_offset, end_time=video_offset+end_seconds).with_audio(mixed_audioclip)
 
 final_videoclip.write_videofile(export_name, audio_codec="aac")
